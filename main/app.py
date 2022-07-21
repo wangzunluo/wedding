@@ -25,5 +25,10 @@ def countdown():
     return render_template('countdown.html')
 
 @app.route('/rsvp')
-def rsvp():
+@app.route('/rsvp/<test>')
+def rsvp(test=None):
+    print(test)
     return render_template('rsvp.html')
+
+def test():
+    print("test")

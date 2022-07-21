@@ -5,16 +5,34 @@
     <title>Arwin&Jessica</title>
 </head>
 <body>
-    <h1>Please RSVP by filling out the form below</h1>
+    <h1>Please RSVP by no later than DATE</h1>
+    <h2>Please no additional guests unless confirmed first with jess or arwin.</h2>
     <a href="/">Home</a><br>
-    <form>
+    <button onClick="addGuest()">Add Guest</button>
+    <form id="guests">
         <label for="fname">First name:</label><br>
         <input type="text" id="fname" name="fname"><br>
         <label for="lname">Last name:</label><br>
         <input type="text" id="lname" name="lname"><br>
         <label for="email">Email Address:</label><br>
         <input type="email" id="email" name="email"><br>
+        <label for="phone">Phone number:</label><br>
+        <input type="tel" id="phone" name="phone"><br>
+        <label for="food">Food Preference:</label><br>
+        <input type="radio" id="Steak" name="food" value="Steak">
+        <label for="Steak">STEAK</label><br>
+        <input type="radio" id="Salmon" name="food" value="Salmon">
+        <label for="Salmon">Salmon</label><br>
         <input type="submit">
     </form>
 </body>
+<script>
+    function addGuest(){
+        let form = document.getElementById("guests")
+        let input = document.createElement("input")
+        input.type = "radio"
+        input.value = "test"
+        form.appendChild(input)
+    }
+</script>
 </html>
