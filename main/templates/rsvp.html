@@ -6,23 +6,96 @@
 </head>
 <body>
     <h1>Please RSVP by no later than DATE</h1>
-    <h2>Please no additional guests unless confirmed first with jess or arwin.</h2>
-    <a href="/">Home</a><br>
-    <button onClick="addGuest()">Add Guest</button>
+    <p>We politely request that only the people listed in the invitation be present. We hope to have a bigger celebration with everyone at a different time!</p>
+    <a href="/">Home</a><br><br>
+    <div>Food Description:</div>
+    <div>Option #1: Steak (grilled flat iron steak with traditional chimichurri sauce)</div>
+    <div>Option #2: Salmon (Asian panko-crusted salmon with 5 spice seasoning & miso honey glaze)</div><br><br>
     <form id="guests">
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname"><br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname"><br>
-        <label for="email">Email Address:</label><br>
-        <input type="email" id="email" name="email"><br>
-        <label for="phone">Phone number:</label><br>
-        <input type="tel" id="phone" name="phone"><br>
-        <label for="food">Food Preference:</label><br>
-        <input type="radio" id="Steak" name="food" value="Steak">
-        <label for="Steak">STEAK</label><br>
-        <input type="radio" id="Salmon" name="food" value="Salmon">
-        <label for="Salmon">Salmon</label><br>
+        <table>
+            <tr>
+                <td>Person #1</td>
+                <td>Person #2</td>
+                <td>Person #3</td>
+                <td>Person #4</td>
+                <td>Person #5</td>
+                <td>Person #6</td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="fname" required><br>
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname" required><br>
+                    <label for="email">Email Address:</label><br>
+                    <input type="email" id="email" name="email" required><br>
+                    <label for="phone">Phone number:</label><br>
+                    <input type="tel" id="phone" name="phone"><br>
+                    <label for="food">Food Preference:</label><br>
+                    <input type="radio" id="Steak" name="food" value="Steak" required>
+                    <label for="Steak">STEAK</label><br>
+                    <input type="radio" id="Salmon" name="food" value="Salmon" required>
+                    <label for="Salmon">Salmon</label><br>
+                </td>
+                <td style="vertical-align:top">
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="fname"><br>
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname"><br>
+                    <label for="food">Food Preference:</label><br>
+                    <input type="radio" id="Steak" name="food" value="Steak">
+                    <label for="Steak">STEAK</label><br>
+                    <input type="radio" id="Salmon" name="food" value="Salmon">
+                    <label for="Salmon">Salmon</label><br>
+                </td>
+                <td style="vertical-align:top">
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="fname"><br>
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname"><br>
+                    <label for="food">Food Preference:</label><br>
+                    <input type="radio" id="Steak" name="food" value="Steak">
+                    <label for="Steak">STEAK</label><br>
+                    <input type="radio" id="Salmon" name="food" value="Salmon">
+                    <label for="Salmon">Salmon</label><br>
+                </td>
+                <td style="vertical-align:top">
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="fname"><br>
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname"><br>
+                    <label for="food">Food Preference:</label><br>
+                    <input type="radio" id="Steak" name="food" value="Steak">
+                    <label for="Steak">STEAK</label><br>
+                    <input type="radio" id="Salmon" name="food" value="Salmon">
+                    <label for="Salmon">Salmon</label><br>
+                </td>
+                <td style="vertical-align:top">
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="fname"><br>
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname"><br>
+                    <label for="food">Food Preference:</label><br>
+                    <input type="radio" id="Steak" name="food" value="Steak">
+                    <label for="Steak">STEAK</label><br>
+                    <input type="radio" id="Salmon" name="food" value="Salmon">
+                    <label for="Salmon">Salmon</label><br>
+                </td>
+                <td style="vertical-align:top">
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="fname"><br>
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname"><br>
+                    <label for="food">Food Preference:</label><br>
+                    <input type="radio" id="Steak" name="food" value="Steak">
+                    <label for="Steak">STEAK</label><br>
+                    <input type="radio" id="Salmon" name="food" value="Salmon">
+                    <label for="Salmon">Salmon</label><br>
+                </td>
+            </tr>
+        </table>
+        
+        
         <input type="submit">
     </form>
 </body>
