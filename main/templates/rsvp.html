@@ -8,6 +8,18 @@
     <h1>Please RSVP by no later than DATE</h1>
     <p>We politely request that only the people listed in the invitation be present. We hope to have a bigger celebration with everyone at a different time!</p>
     <a href="/">Home</a><br><br>
+    <form method="post">
+        <label for="numpeople">Select how many people to RSVP:</label><br>
+        <select id="people" name="people">
+            <option value="{{ request.form['people'] }}">1</option>
+            <option value="{{ request.form['people'] }}">2</option>
+            <option value="{{ request.form['people'] }}">3</option>
+            <option value="{{ request.form['people'] }}">4</option>
+            <option value="{{ request.form['people'] }}">5</option>
+            <option value="{{ request.form['people'] }}">6</option>
+        </select><br>
+        <input type="submit">
+    </form>
     <div>Food Description:</div>
     <div>Option #1: Steak (grilled flat iron steak with traditional chimichurri sauce)</div>
     <div>Option #2: Salmon (Asian panko-crusted salmon with 5 spice seasoning & miso honey glaze)</div><br><br>
