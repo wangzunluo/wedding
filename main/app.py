@@ -33,12 +33,20 @@ def countdown():
 
 @app.route('/rsvp', methods=['GET', 'POST'])
 def rsvp():
-    if request.method =='GET':
+    if request.method == 'GET':
         return render_template('rsvp.html')
     elif request.method == 'POST':
         num = request.form.get('people')
         return redirect(url_for('rsvp')+'/'+str(num))
+    else:
+        return render_template('error.html', method=request.method)
 
-@app.route('/rsvp/<num>')
+
+@app.route('/rsvp/<num>', methods=['GET', 'POST'])
 def rsvp_num(num=None):
-    return render_template('rsvp.html', num=num)
+    if request.method == 'GET':
+        return render_template('rsvp.html', num=int(num))
+    elif request.method == 'POST':
+        return render_template('success.html', name='generic')
+    else:
+        return render_template('error.html', method=request.method)
