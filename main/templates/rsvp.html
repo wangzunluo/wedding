@@ -42,9 +42,9 @@
                     <label for="phone">Phone number:</label><br>
                     <input type="tel" id="phone" name="phone"><br>
                     <label for="food">Food Preference:</label><br>
-                    <input type="radio" id="Steak" name="food" value="Steak" required>
+                    <input type="radio" id="Steak" name="food1" value="Steak" required>
                     <label for="Steak">STEAK</label><br>
-                    <input type="radio" id="Salmon" name="food" value="Salmon" required>
+                    <input type="radio" id="Salmon" name="food1" value="Salmon" required>
                     <label for="Salmon">Salmon</label><br>
                 </td>
                 {% for n in range(2,num+1) %}
@@ -54,10 +54,10 @@
                     <label for="lname">Last name:</label><br>
                     <input type="text" id="lname" name="lname"><br>
                     <label for="food">Food Preference:</label><br>
-                    <input type="radio" id="Steak" name="food" value="Steak">
-                    <label for="Steak">STEAK</label><br>
-                    <input type="radio" id="Salmon" name="food" value="Salmon">
-                    <label for="Salmon">Salmon</label><br>
+                    <input type="radio" id="Steak{{n}}" name="food{{n}}" value="Steak" required>
+                    <label for="Steak{{n}}">STEAK</label><br>
+                    <input type="radio" id="Salmon{{n}}" name="food{{n}}" value="Salmon" required>
+                    <label for="Salmon{{n}}">Salmon</label><br>
                 </td>
                 {% endfor %}
             </tr>
