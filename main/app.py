@@ -2,6 +2,7 @@
 from flask import Flask, redirect, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 import os
+import sys
 
 
 cwd = os.getcwd().replace('\\', '/')
@@ -47,6 +48,20 @@ def rsvp_num(num=None):
     if request.method == 'GET':
         return render_template('rsvp.html', num=int(num))
     elif request.method == 'POST':
+        print(request.form, file=sys.stdout, flush=True)
+        form = request.form
+        fnames = form.getlist('fname')
+        lnames = form.getlist('lname')
+        email = form['email']
+        phone = form.get('phone')
+        foods = []
+        for i in range(1,len(fnames)+1):
+            foods.append(form['food'+str(i)])
+        print(fnames, file=sys.stdout, flush=True)
+        print(lnames, file=sys.stdout, flush=True)
+        print(email, file=sys.stdout, flush=True)
+        print(phone, file=sys.stdout, flush=True)
+        print(foods, file=sys.stdout, flush=True)
         return render_template('success.html', name='generic')
     else:
         return render_template('error.html', method=request.method)
