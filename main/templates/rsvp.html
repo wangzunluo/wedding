@@ -13,7 +13,7 @@
         <label for="numpeople">Select how many people to RSVP:</label><br>
         <select id="people" name="people">
             {% for n in range(1,7) %}
-                <option value="{{n}}">{{ n }}</option>
+            <option value="{{n}}">{{ n }}</option>
             {% endfor %}
         </select><br>
         <input type="submit">
@@ -23,15 +23,13 @@
     <div>Food Description:</div>
     <div>Option #1: Steak (grilled flat iron steak with traditional chimichurri sauce)</div>
     <div>Option #2: Salmon (Asian panko-crusted salmon with 5 spice seasoning & miso honey glaze)</div><br><br>
-    <form id="guests">
+    <form id="guests" method="post">
         <table>
             <tr>
                 <td>Person #1</td>
-                <td>Person #2</td>
-                <td>Person #3</td>
-                <td>Person #4</td>
-                <td>Person #5</td>
-                <td>Person #6</td>
+                {% for n in range(2,num+1) %}
+                <td>Person #{{ n }}</td>
+                {% endfor %}
             </tr>
             <tr>
                 <td>
@@ -49,6 +47,7 @@
                     <input type="radio" id="Salmon" name="food" value="Salmon" required>
                     <label for="Salmon">Salmon</label><br>
                 </td>
+                {% for n in range(2,num+1) %}
                 <td style="vertical-align:top">
                     <label for="fname">First name:</label><br>
                     <input type="text" id="fname" name="fname"><br>
@@ -60,54 +59,9 @@
                     <input type="radio" id="Salmon" name="food" value="Salmon">
                     <label for="Salmon">Salmon</label><br>
                 </td>
-                <td style="vertical-align:top">
-                    <label for="fname">First name:</label><br>
-                    <input type="text" id="fname" name="fname"><br>
-                    <label for="lname">Last name:</label><br>
-                    <input type="text" id="lname" name="lname"><br>
-                    <label for="food">Food Preference:</label><br>
-                    <input type="radio" id="Steak" name="food" value="Steak">
-                    <label for="Steak">STEAK</label><br>
-                    <input type="radio" id="Salmon" name="food" value="Salmon">
-                    <label for="Salmon">Salmon</label><br>
-                </td>
-                <td style="vertical-align:top">
-                    <label for="fname">First name:</label><br>
-                    <input type="text" id="fname" name="fname"><br>
-                    <label for="lname">Last name:</label><br>
-                    <input type="text" id="lname" name="lname"><br>
-                    <label for="food">Food Preference:</label><br>
-                    <input type="radio" id="Steak" name="food" value="Steak">
-                    <label for="Steak">STEAK</label><br>
-                    <input type="radio" id="Salmon" name="food" value="Salmon">
-                    <label for="Salmon">Salmon</label><br>
-                </td>
-                <td style="vertical-align:top">
-                    <label for="fname">First name:</label><br>
-                    <input type="text" id="fname" name="fname"><br>
-                    <label for="lname">Last name:</label><br>
-                    <input type="text" id="lname" name="lname"><br>
-                    <label for="food">Food Preference:</label><br>
-                    <input type="radio" id="Steak" name="food" value="Steak">
-                    <label for="Steak">STEAK</label><br>
-                    <input type="radio" id="Salmon" name="food" value="Salmon">
-                    <label for="Salmon">Salmon</label><br>
-                </td>
-                <td style="vertical-align:top">
-                    <label for="fname">First name:</label><br>
-                    <input type="text" id="fname" name="fname"><br>
-                    <label for="lname">Last name:</label><br>
-                    <input type="text" id="lname" name="lname"><br>
-                    <label for="food">Food Preference:</label><br>
-                    <input type="radio" id="Steak" name="food" value="Steak">
-                    <label for="Steak">STEAK</label><br>
-                    <input type="radio" id="Salmon" name="food" value="Salmon">
-                    <label for="Salmon">Salmon</label><br>
-                </td>
+                {% endfor %}
             </tr>
         </table>
-        
-        
         <input type="submit">
     </form>
     {% endif %}
