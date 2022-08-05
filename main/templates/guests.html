@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arwin&Jessica</title>
+</head>
+<body>
+    <h1>Our most honorable guests</h1>
+    <a href="/">Home</a><br>
+    {% if not users %}
+    <h2>No guests have completed rsvp yet!</h2>
+    {% else %}
+    <h3>Total number of guests: {{users|length}}</h3>
+    <table>
+        <tr>
+            <th>Guest</th>
+            <th>Food Preference</th>
+        </tr>
+    {% for user in users %}
+        <tr>
+            <td>{{user.fname}} {{user.lname}}</td>
+            <td>{{user.food}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
