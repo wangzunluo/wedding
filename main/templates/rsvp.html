@@ -49,9 +49,9 @@
                 {% for n in range(2,num+1) %}
                 <td style="vertical-align:top">
                     <label for="fname">First name:</label><br>
-                    <input type="text" id="fname" name="fname"><br>
+                    <input type="text" id="fname" name="fname" required><br>
                     <label for="lname">Last name:</label><br>
-                    <input type="text" id="lname" name="lname"><br>
+                    <input type="text" id="lname" name="lname" required><br>
                     <label for="food">Food Preference:</label><br>
                     <input type="radio" id="Steak{{n}}" name="food{{n}}" value="Steak" required>
                     <label for="Steak{{n}}">STEAK</label><br>
