@@ -62,7 +62,6 @@ def rsvp_num(num=None):
     if request.method == 'GET':
         return render_template('rsvp.html', num=int(num))
     elif request.method == 'POST':
-        print(request.form, flush=True)
         form = request.form
         fnames = form.getlist('fname')
         lnames = form.getlist('lname')
@@ -71,11 +70,7 @@ def rsvp_num(num=None):
         foods = []
         for i in range(1,len(fnames)+1):
             foods.append(form['food'+str(i)])
-        print(fnames, file=sys.stdout, flush=True)
-        print(lnames, file=sys.stdout, flush=True)
-        print(email, file=sys.stdout, flush=True)
-        print(phone, file=sys.stdout, flush=True)
-        print(foods, file=sys.stdout, flush=True)
+
         
         person = User(fname=fnames[0], lname=lnames[0], food=foods[0])
         db.session.add(person)
@@ -85,8 +80,6 @@ def rsvp_num(num=None):
             db.session.add(person)
             counter += 1
         db.session.commit()
-        print(User.query.all(), file=sys.stdout, flush=True)
-
         return render_template('success.html', name=fnames[0])
     else:
         return render_template('error.html', method=request.method)
