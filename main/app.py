@@ -6,10 +6,12 @@ import os
 import sys
 
 
-cwd = os.getcwd().replace('\\', '/')
+cwd = os.getcwd()
+if '\\' in cwd:
+    cwd = cwd.replace('\\', '/')[3:]
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////'+cwd[3:]+'/db/test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////'+cwd+'/db/test.db'
 db = SQLAlchemy(app)
 
 class User(db.Model):
@@ -72,7 +74,7 @@ def rsvp_num(num=None):
             foods.append(form['food'+str(i)])
 
         
-        person = User(fname=fnames[0], lname=lnames[0], food=foods[0])
+        person = User(fname=fnames[0], lname=lnames[0], food=foods[0], email=email)
         db.session.add(person)
         counter = 1
         while counter < len(fnames):
