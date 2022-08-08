@@ -1,0 +1,9 @@
+h1 {
+    background-color: aqua;
+}
+
+@media screen and  (max-width: 1050px) {
+    h1 {
+        background-color: brown;
+    }
+}

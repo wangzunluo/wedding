@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Arwin&Jessica</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename="css/landing.css") }}"
+    />
 </head>
 <body>
     <h1>Welcome To Arwin and Jessica's Wedding Website!</h1>
@@ -25,47 +29,7 @@
     <!-- Icons to support Material Design -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <!-- Load our React component. -->
-    <script>
-        'use strict';
-
-        const e = React.createElement;
-
-        class LikeButton extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = { liked: false };
-        }
-
-        render() {
-            if (this.state.liked) {
-            return 'You liked this.';
-            }
-
-            return e(
-            'button',
-            { onClick: () => this.setState({ liked: true }) },
-            'Like'
-            );
-        }
-        }
-        const domContainer = document.querySelector('#like_button_container');
-        const root = ReactDOM.createRoot(domContainer);
-        root.render(e(LikeButton));
-    </script>
-    <script type="text/babel">
-        const {
-            Button
-          } = MaterialUI;
-        function App() {
-        return <Button variant="contained">Hello World</Button>;
-        }
-
-        ReactDOM.createRoot(document.querySelector("#app")).render(
-        <React.StrictMode>
-            <App />
-        </React.StrictMode>
-        );
-    </script>
+    <script src="{{ url_for('static', filename="js/app.js") }}"></script>
 </body>
 <script>
     
