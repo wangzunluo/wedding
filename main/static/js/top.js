@@ -1,13 +1,17 @@
 const {
     Button,
-    Container
+    Grid
   } = MaterialUI;
 
 function App() {
   return (
-    <Container style={{backgroundColor: "pink"}}>
-        <h1>Welcome To Arwin and Jessica's Wedding Website!</h1>
-    </Container>
+    <Grid container direction="row" justifyContent="center"
+    alignItems="center" style={{backgroundColor: "pink"}}>
+        <h1 className="title">
+          Welcome To<br></br>
+          Arwin and Jessica's<br></br>
+          Wedding Website!</h1>
+    </Grid>
   );
 }
 

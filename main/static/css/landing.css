@@ -1,5 +1,17 @@
 h1 {
-    background-color: aqua;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 62px;
+    line-height: 75px;
+    letter-spacing: -0.04em;
+    justify-content: center;
+}
+
+.title {
+    background: linear-gradient(89.97deg, rgb(238, 72, 100) 1.84%, #5659e7 102.67%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 @media screen and  (max-width: 1050px) {
