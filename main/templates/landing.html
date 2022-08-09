@@ -9,15 +9,8 @@
     />
 </head>
 <body>
-    <h1>Welcome To Arwin and Jessica's Wedding Website!</h1>
-    <a href="/countdown">Countdown</a><br>
-    <a href="/rsvp">RSVP</a><br>
-    <a href="/guests">Guest List</a>
-    <form method="post">
-        <input type="submit" value="Debug">
-    </form>
-    <div id="app"></div>
-    <div id="like_button_container"></div>
+    <div id="top"></div>
+    <div id="body"></div>
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@mui/material@latest/umd/material-ui.development.js" crossorigin></script>
@@ -28,8 +21,9 @@
     />
     <!-- Icons to support Material Design -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <!-- Load our React component. -->
-    <script src="{{ url_for('static', filename="js/app.js") }}"></script>
+    <script type="text/babel" src="{{ url_for('static', filename="js/top.js") }}"></script>
+    <script type="text/babel" src="{{ url_for('static', filename="js/body.js") }}"></script>
+
 </body>
 <script>
     
