@@ -38,7 +38,7 @@ def landing():
 
 @app.route('/countdown')
 def countdown():
-    return render_template('countdown.html')
+    return render_template('landing.html', selected=0)
 
 
 @app.route('/guests')
@@ -46,6 +46,10 @@ def guests():
     users = User.query.all()
     users.sort(key=lambda user : user.fname.lower())
     return render_template('guests.html', users=users)
+
+@app.route('/test')
+def test():
+    return render_template('test.html')
 
 
 @app.route('/rsvp', methods=['GET', 'POST'])
