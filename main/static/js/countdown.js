@@ -64,8 +64,7 @@
       render() {
           return (
               <div>
-                  <h1>Countdown until we are married!</h1>
-                  <h2>{this.state.time}</h2>
+                <div className='date'>{this.state.time}</div>
               </div>
           );
       }
@@ -74,5 +73,3 @@
     // the exported module properties.
     exports.Countdown = Countdown
   }));
-  
-export default Countdown;

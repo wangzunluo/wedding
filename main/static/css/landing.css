@@ -1,21 +1,87 @@
 h1 {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
+    font-family: luxus-brut, cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
     font-size: 62px;
     line-height: 75px;
     letter-spacing: -0.04em;
     justify-content: center;
 }
 
+@font-face {
+    font-family: hellohoney;
+    src: url(../otf/hellohoney.otf) format("opentype");
+}
+
+.date {
+    font-family: montserrat, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 36px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.footer {
+    font-family: montserrat, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 21px;
+    position:absolute;
+    bottom: 100px;
+    text-align: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    background-image: url(../img/landing.jpg);
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: 1% 99%;
+}
+
+html {
+    height: 100%;
+}
+
 .title {
-    background: linear-gradient(89.97deg, rgb(238, 72, 100) 1.84%, #5659e7 102.67%);
+    font-family: hellohoney;
+    font-size: 120px;
+    color: white;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* background: linear-gradient(89.97deg, rgb(238, 72, 100) 1.84%, #5659e7 102.67%);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
 }
 
 @media screen and  (max-width: 1050px) {
     h1 {
         background-color: brown;
+    }
+
+    body {
+        background-position: 45% 55%;
     }
 }

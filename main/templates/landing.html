@@ -5,12 +5,13 @@
     <title>Arwin&Jessica</title>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename="css/landing.css") }}"
+      href="{{ url_for('static', filename='css/landing.css') }}"
     />
+    <link rel="stylesheet" href="https://use.typekit.net/awk2ght.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='ico/favicon.ico') }}">
 </head>
 <body>
     <div id="top"></div>
-    <div id="body"></div>
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@mui/material@latest/umd/material-ui.development.js" crossorigin></script>
@@ -19,11 +20,11 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
     />
+    
     <!-- Icons to support Material Design -->
-    <script type="text/babel" src="{{ url_for('static', filename="js/countdown.js") }}"></script>
+    <script type="text/babel" src="{{ url_for('static', filename='js/countdown.js') }}"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <script type="text/babel" src="{{ url_for('static', filename="js/top.js") }}"></script>
-    <script type="text/babel" src="{{ url_for('static', filename="js/body.js") }}"></script>
+    <script type="text/babel" src="{{ url_for('static', filename='js/top.js') }}"></script>
 
 </body>
 <script>

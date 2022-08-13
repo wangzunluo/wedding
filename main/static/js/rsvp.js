@@ -4,7 +4,7 @@
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.Reserve = {}, global.React, global.ReactDOM));
   })(this, (function (exports, React, ReactDOM) { 'use strict';
   
-    class Countdown extends React.Component {
+    class RSVP extends React.Component {
       constructor(props) {
           super(props);
           this.state = {
