@@ -40,6 +40,9 @@ def landing():
 def countdown():
     return render_template('landing.html', selected=0)
 
+@app.route('/ourstory')
+def story():
+    return render_template('story.html')
 
 @app.route('/guests')
 def guests():
