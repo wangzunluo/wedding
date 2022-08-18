@@ -67,8 +67,8 @@ function App() {
     console.log('test')
   };
   return (
-    <Grid container justifyContent="center" direction="column" alignItems="center">
-        <Box sx={{ width: '100%' }}>
+    <Grid id="grid" container justifyContent="flex-start" direction="column" alignItems="center">
+        <Box sx={{ width: '100%', position: "relative", top: "0" }}>
           <ThemeProvider theme={theme}>
             <Tabs variant="fullWidth" value={value ? value : false} onChange={handleChange} aria-label="nav tabs example" centered >
               <LinkTab value='/' label="home" href="/" />
@@ -79,7 +79,6 @@ function App() {
             </Tabs>
           </ThemeProvider>
         </Box>
-        <Box style={{padding: '100px'}}></Box>
         <div className="title">Jessica & Arwin</div>
         <br></br>
         <br></br>
@@ -90,10 +89,12 @@ function App() {
         <div className='date'>Countdown until we are married!</div>
         <br></br>
         <Countdown />
-        <div className="footer">
-          website created by arwin<br></br>
-          designed by jessica
-        </div>
+        <Grid item xs={3}>
+          <div className="footer">
+            website created by arwin<br></br>
+            designed by jessica
+          </div>
+        </Grid>
         {value === "/rsvp" && <RSVP />}
         {value === "/guests" && <Guests />}
       {/*<img src="https://drive.google.com/uc?id=11mYhQCmb-94bxXIOuSdPxiaollIUXNAL&export=download"></img>*/}
