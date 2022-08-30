@@ -8,7 +8,9 @@ const {
   typography,
   ThemeProvider,
   createTheme,
-  Grid
+  Grid,
+  styled,
+  Paper
 } = MaterialUI;
 
 const theme = createTheme({
@@ -57,6 +59,14 @@ function LinkTab(props) {
   );
 }
 
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
+
 function App() {
   const [value, setValue] = React.useState(window.location.pathname);
   console.log(value)
@@ -67,36 +77,18 @@ function App() {
     console.log('test')
   };
   return (
-    <Grid id="grid" container justifyContent="flex-start" direction="column" alignItems="center">
-        <Box sx={{ width: '100%', position: "relative", top: "0" }}>
-          <ThemeProvider theme={theme}>
-            <Tabs variant="fullWidth" value={value ? value : false} onChange={handleChange} aria-label="nav tabs example" centered >
-              <LinkTab value='/' label="home" href="/" />
-              <LinkTab value="/ourstory" label="our story" href="/ourstory" />
-              <LinkTab value="/eventdetails" label="event details" href="/eventdetails" />
-              <LinkTab value="/rsvp" label="rsvp" href="/rsvp" />
-              <LinkTab value="/registry" label="registry" href="/registry" />
-            </Tabs>
-          </ThemeProvider>
-        </Box>
-        <div className="title">Jessica & Arwin</div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <div className="date">• 11 • 12 • 22 • CYPRESS • CA •</div>
-        <br></br>
-        <br></br>
-        <div className='date'>Countdown until we are married!</div>
-        <br></br>
-        <Countdown />
-        <Grid item xs={3}>
-          <div className="footer">
-            website created by arwin<br></br>
-            designed by jessica
-          </div>
+    <Grid id="grid" container spacing={2}>
+        <Grid item xs={12}>
+          <Item>xs=12</Item>
         </Grid>
-        {value === "/rsvp" && <RSVP />}
-        {value === "/guests" && <Guests />}
+        <Grid item xs={12}>
+          <Item>xs=4</Item>
+        </Grid>
+        <Grid id="second" container spacing={2} justifyContent="flex-start">
+          <Grid item xs={12}>
+            <Item>xs=12</Item>
+        </Grid>
+        </Grid>
       {/*<img src="https://drive.google.com/uc?id=11mYhQCmb-94bxXIOuSdPxiaollIUXNAL&export=download"></img>*/}
     </Grid>
   );
