@@ -16,6 +16,7 @@ h1 {
 
 #top {
     height: 100%;
+    display: flex;
 }
 
 #grid {
