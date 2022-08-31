@@ -10,7 +10,8 @@ const {
   createTheme,
   Grid,
   styled,
-  Paper
+  Paper,
+  Typography
 } = MaterialUI;
 
 const theme = createTheme({
@@ -77,17 +78,15 @@ function App() {
     console.log('test')
   };
   return (
-    <Grid id="grid" container spacing={2}>
-        <Grid item xs={12}>
+    <Grid container spacing={2} alignItems="flex-start" direction="column" justifyContent="flex-end">
+        <Grid item xs={6} >
           <Item>xs=12</Item>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={4}>
           <Item>xs=4</Item>
         </Grid>
-        <Grid id="second" container spacing={2} justifyContent="flex-start">
-          <Grid item xs={12}>
-            <Item>xs=12</Item>
-        </Grid>
+        <Grid item xs={2}>
+          <Item>xs=4</Item>
         </Grid>
       {/*<img src="https://drive.google.com/uc?id=11mYhQCmb-94bxXIOuSdPxiaollIUXNAL&export=download"></img>*/}
     </Grid>
