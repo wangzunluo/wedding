@@ -125,9 +125,11 @@ html {
 .Statement {
     font-family: avocadocreamy;
     color: #9D2101;
+    font-size: 40px;
 }
 
 .Response {
     font-family: avocadocreamy;
     color: #DB968C;
+    font-size: 40px;
 }

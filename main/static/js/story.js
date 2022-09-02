@@ -22,8 +22,8 @@
   
       render() {
           return (
-                <Grid item container xs={10} justifyContent="flex-start" alignItems="flex-start" direction="row">
-                    <Grid item container xs={8} justifyContent="flex-start" alignItems="center" direction="column">
+                <Grid item container xs={10} justifyContent="center" alignItems="center" direction="row">
+                    <Grid item container xs={5} justifyContent="center" alignItems="center" direction="column" sx={{height: "100%"}}>
                         <div className='Statement'>Arwin aka the looks:<br></br></div>
                         <div className='Response'>Software engineer at JPMC<br></br></div>
                         <div className='Statement'>Jessica aka the brain:<br></br></div>
@@ -31,11 +31,13 @@
                         <div className='Statement'>Where/how they met:<br></br></div>
                         <div className='Response'>mutual friends in Houston<br></br></div>
                         <div className='Statement'>Why Arwin likes Jess:<br></br></div>
-                        <div className='Response'>She’s not afraid to be herself, and she accepts me for who I am.<br></br></div>
+                        <div className='Response'>She’s not afraid to be herself, and<br></br></div>
+                        <div className='Response'>she accepts me for who I am.<br></br></div>
                         <div className='Statement'>Why Jess likes Arwin:<br></br></div>
-                        <div className='Response'>He waits in line with me when I want samples at Costco and H Mart.</div>
+                        <div className='Response'>He waits in line with me when I<br></br></div>
+                        <div className='Response'>want samples at Costco and H Mart.</div>
                     </Grid>
-                    <Grid id="leag" item container xs={4} justifyContent="center" alignItems="center" direction="column">
+                    <Grid id="leag" item container xs={3} justifyContent="center" alignItems="center" direction="column">
                     </Grid>
                 </Grid>
           );

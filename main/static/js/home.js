@@ -24,25 +24,25 @@
           return (
             <Grid item container xs={10} justifyContent="center" alignItems="center" direction="column">
                 <Grid item container xs={8} justifyContent="center" alignItems="center" direction="column">
-        <div className="title">Jessica & Arwin</div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <div className="date">• 11 • 12 • 22 • CYPRESS • CA •</div>
-        <br></br>
-        <br></br>
-        <div className='date'>Countdown until we are married!</div>
-        <br></br>
-        <Countdown />
-      </Grid>
+                  <div className="title">Jessica & Arwin</div>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <div className="date">• 11 • 12 • 22 • CYPRESS • CA •</div>
+                  <br></br>
+                  <br></br>
+                  <div className='date'>Countdown until we are married!</div>
+                  <br></br>
+                  <Countdown />
+                </Grid>
                 <Grid item container xs={2} justifyContent="center">
-        <Grid item xs={6} >
-          <div className="footer">
-            website created by arwin<br></br>
-            designed by jessica
-          </div>
-        </Grid>
-      </Grid> 
+                  <Grid item xs={6} >
+                    <div className="footer">
+                      website created by arwin<br></br>
+                      designed by jessica
+                    </div>
+                  </Grid>
+                </Grid> 
             </Grid>
           );
       }

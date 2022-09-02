@@ -42,7 +42,7 @@ def countdown():
 
 @app.route('/ourstory')
 def story():
-    return render_template('story.html')
+    return render_template('landing.html', selected=10)
 
 @app.route('/guests')
 def guests():

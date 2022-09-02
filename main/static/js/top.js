@@ -4,6 +4,8 @@ const { Countdown } = Clock;
 const { Story } = Pages;
 const { Home } = Landing;
 
+console.log(Object.keys(window));
+
 const {
   Tabs,
   Container,
