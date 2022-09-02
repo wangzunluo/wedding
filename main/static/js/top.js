@@ -1,4 +1,8 @@
+
+
 const { Countdown } = Clock;
+const { Story } = Pages;
+const { Home } = Landing;
 
 const {
   Tabs,
@@ -24,6 +28,7 @@ const theme = createTheme({
   },
  
 });
+
 
 const tabtoindex = {
     "/": 0,
@@ -57,17 +62,26 @@ function LinkTab(props) {
   );
 }
 
+const backgrounds = {
+  "/": `url(${"static/img/landing.jpg"})`,
+  "/ourstory": `url(${"static/img/whitepink.png"})`
+};
+
 function App() {
   const [value, setValue] = React.useState(window.location.pathname);
+  const [image, setImage] = React.useState(backgrounds[window.location.pathname]);
+
   console.log(value)
   console.log('funk')
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    setImage(backgrounds[newValue]);
     console.log(newValue)
     console.log('test')
   };
   return (
-    <Grid id="grid" container justifyContent="flex-start" direction="column" alignItems="center">
+    
+    <Grid id="grid" container justifyContent="flex-start" direction="column" alignItems="center" sx={{backgroundImage: image}}>
       <Grid item container xs={2}>
         <Box sx={{ width: '100%', position: "relative", top: "0" }}>
           <ThemeProvider theme={theme}>
@@ -81,26 +95,8 @@ function App() {
           </ThemeProvider>
         </Box>
       </Grid>
-      <Grid item container xs={8} justifyContent="center" alignItems="center" direction="column">
-        <div className="title">Jessica & Arwin</div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <div className="date">• 11 • 12 • 22 • CYPRESS • CA •</div>
-        <br></br>
-        <br></br>
-        <div className='date'>Countdown until we are married!</div>
-        <br></br>
-        <Countdown />
-      </Grid>
-      <Grid item container xs={2} justifyContent="center">
-        <Grid item xs={3} >
-          <div className="footer">
-            website created by arwin<br></br>
-            designed by jessica
-          </div>
-        </Grid>
-      </Grid>
+        {value === "/" && <Home />}
+        {value === "/ourstory" && <Story />}
         {value === "/rsvp" && <RSVP />}
         {value === "/guests" && <Guests />}
       {/*<img src="https://drive.google.com/uc?id=11mYhQCmb-94bxXIOuSdPxiaollIUXNAL&export=download"></img>*/}

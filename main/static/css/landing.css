@@ -14,13 +14,38 @@ h1 {
     src: url(../otf/hellohoney.otf) format("opentype");
 }
 
+@font-face {
+    font-family: avocadocreamy;
+    src: url(../otf/AvocadoCreamy.otf) format("opentype");
+}
+
 #top {
     height: 100%;
+    width: 100%;
     display: flex;
 }
 
 #grid {
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: 1% 99%;
     height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#leag {
+    background-image: url(../img/leag.png);
+
+    background-repeat: no-repeat;
+    background-position: left center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -95,4 +120,14 @@ html {
     body {
         background-position: 45% 55%;
     }
+}
+
+.Statement {
+    font-family: avocadocreamy;
+    color: #9D2101;
+}
+
+.Response {
+    font-family: avocadocreamy;
+    color: #DB968C;
 }
