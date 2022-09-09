@@ -64,7 +64,7 @@ def test():
     return render_template('test.html')
 
 
-@app.route('/rsvp', methods=['GET', 'POST'])
+@app.route('/rsvp/form', methods=['GET', 'POST'])
 def rsvp():
     if request.method == 'GET':
         return render_template('rsvp.html')
@@ -75,7 +75,7 @@ def rsvp():
         return render_template('error.html', method=request.method)
 
 
-@app.route('/rsvp/<num>', methods=['GET', 'POST'])
+@app.route('/rsvp/form/<num>', methods=['GET', 'POST'])
 def rsvp_num(num=None):
     if request.method == 'GET':
         return render_template('rsvp.html', num=int(num))
