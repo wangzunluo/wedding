@@ -133,3 +133,27 @@ html {
     color: #DB968C;
     font-size: 40px;
 }
+
+.Details {
+    font-family: josefin-slab, serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #76A9C8;
+    font-size: 40px;
+}
+
+.Dress {
+    font-family: luxus-brut, cursive;
+    font-weight: 200;
+    font-style: normal;
+    color: #4E82A2;
+    font-size: 60px;
+    line-height: 60px;
+}
+
+.message {
+    text-align: center;
+    color: #CA8FCA;
+    font-size: 50px;
+    font-family: avocadocreamy;
+}

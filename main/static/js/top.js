@@ -3,6 +3,9 @@
 const { Countdown } = Clock;
 const { Story } = Pages;
 const { Home } = Landing;
+const { Details } = Information;
+const { RSVP } = Forms;
+const { Registry } = Shopping;
 
 console.log(Object.keys(window));
 
@@ -66,7 +69,10 @@ function LinkTab(props) {
 
 const backgrounds = {
   "/": `url(${"static/img/landing.jpg"})`,
-  "/ourstory": `url(${"static/img/whitepink.png"})`
+  "/ourstory": `url(${"static/img/whitepink.png"})`,
+  "/eventdetails": `url(${"static/img/blue.png"})`,
+  "/rsvp": `url(${"static/img/green.png"})`,
+  "/registry": `url(${"static/img/purple.png"})`
 };
 
 function App() {
@@ -99,7 +105,9 @@ function App() {
       </Grid>
         {value === "/" && <Home />}
         {value === "/ourstory" && <Story />}
+        {value === "/eventdetails" && <Details />}
         {value === "/rsvp" && <RSVP />}
+        {value === "/registry" && <Registry />}
         {value === "/guests" && <Guests />}
       {/*<img src="https://drive.google.com/uc?id=11mYhQCmb-94bxXIOuSdPxiaollIUXNAL&export=download"></img>*/}
     </Grid>
