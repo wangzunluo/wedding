@@ -26,14 +26,7 @@ h1 {
 }
 
 #grid {
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-position: 1% 99%;
-    height: 100%;
+    background-size: 100% 100%;
     margin: 0;
     padding: 0;
 }
@@ -51,7 +44,22 @@ h1 {
 
 .date {
     font-family: montserrat, sans-serif;
-    font-weight: 400;
+    font-weight: 1000;
+    font-style: normal;
+    color: white;
+    font-size: 36px;
+    letter-spacing: 20px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.timer {
+    font-family: montserrat, sans-serif;
+    font-weight: bold;
     font-style: normal;
     color: white;
     font-size: 36px;
@@ -65,10 +73,10 @@ h1 {
 
 .footer {
     font-family: montserrat, sans-serif;
-    font-weight: 400;
+    font-weight: bold;
     font-style: normal;
     color: white;
-    font-size: 21px;
+    font-size: 35px;
     text-align: center;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -79,25 +87,20 @@ h1 {
 }
 
 body {
-    background-image: url(../img/landing.jpg);
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-position: 1% 99%;
     height: 100%;
     margin: 0;
     padding: 0;
+
 }
 
 html {
     height: 100%;
+    width: 100%;
+
 }
 
 .title {
-    font-family: hellohoney;
+    font-family: luxus-brut, cursive;
     font-size: 120px;
     color: white;
     -webkit-touch-callout: none;

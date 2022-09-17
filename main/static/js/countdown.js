@@ -64,7 +64,7 @@
       render() {
           return (
               <div>
-                <div className='date'>{this.state.time}</div>
+                <div className='timer'>{this.state.time}</div>
               </div>
           );
       }

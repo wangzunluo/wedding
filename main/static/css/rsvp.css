@@ -1,0 +1,19 @@
+#guestform {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+}

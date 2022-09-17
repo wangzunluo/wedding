@@ -17,13 +17,14 @@ const {
   typography,
   ThemeProvider,
   createTheme,
-  Grid
+  Grid,
+  Paper
 } = MaterialUI;
 
 const theme = createTheme({
   typography: {
     fontFamily: 'luxus-brut, cursive',
-    fontSize: 60,
+    fontSize: 40,
     button: {
       textTransform: "none",
       fontWeight: 400,
@@ -49,11 +50,11 @@ function LinkTab(props) {
     <Tab
       sx={{
         color: 'white',
-        '& .Mui-selected': {
-          backgroundColor: 'rgba(220, 0, 50, 0.1)',
-          fontSize: 80,
+        '&.Mui-selected': {
+          color: '#FFCAC2',
+          fontSize: 60,
         },
-        fontSize: 80,
+        fontSize: 60,
       }}
       component="a"
       onClick={(event) => {
@@ -89,19 +90,20 @@ function App() {
   };
   return (
     
-    <Grid id="grid" container justifyContent="flex-start" direction="column" alignItems="center" sx={{backgroundImage: image}}>
-      <Grid item container xs={2}>
-        <Box sx={{ width: '100%', position: "relative", top: "0" }}>
+    <Grid id="grid" xs={12} container justifyContent="flex-start" direction="column" alignItems="center" sx={{backgroundImage: image}}>
+      <Grid item container xs={2} direction="row">
+        <Grid item xs={12}>
           <ThemeProvider theme={theme}>
-            <Tabs variant="fullWidth" value={value ? value : false} onChange={handleChange} aria-label="nav tabs example" centered >
+            <Tabs TabIndicatorProps={{ sx: {height: 0} }} variant="fullWidth" value={value ? value : false} onChange={handleChange} centered >
               <LinkTab value='/' label="home" href="/" />
               <LinkTab value="/ourstory" label="our story" href="/ourstory" />
               <LinkTab value="/eventdetails" label="event details" href="/eventdetails" />
               <LinkTab value="/rsvp" label="rsvp" href="/rsvp" />
+              <LinkTab value="/accommodation" label="accommodation" href="/accommodation" />
               <LinkTab value="/registry" label="registry" href="/registry" />
             </Tabs>
           </ThemeProvider>
-        </Box>
+        </Grid>
       </Grid>
         {value === "/" && <Home />}
         {value === "/ourstory" && <Story />}

@@ -69,8 +69,25 @@ def rsvp():
     if request.method == 'GET':
         return render_template('rsvp.html')
     elif request.method == 'POST':
-        num = request.form.get('people')
-        return redirect(url_for('rsvp')+'/'+str(num))
+        form = request.form
+        fnames = form.getlist('fname')
+        lnames = form.getlist('lname')
+        email = form['email']
+        phone = form.get('phone')
+        foods = []
+        for i in range(1,len(fnames)+1):
+            foods.append(form['food'+str(i)])
+
+        
+        person = User(fname=fnames[0], lname=lnames[0], food=foods[0], email=email)
+        db.session.add(person)
+        counter = 1
+        while counter < len(fnames):
+            person = User(fname=fnames[counter], lname=lnames[counter], food=foods[counter])
+            db.session.add(person)
+            counter += 1
+        db.session.commit()
+        return render_template('success.html', name=fnames[0])
     else:
         return render_template('error.html', method=request.method)
 

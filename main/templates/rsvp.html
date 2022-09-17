@@ -3,10 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Arwin&Jessica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rsvp.css') }}"/>
 </head>
 <body>
-    <h1>Please RSVP by no later than DATE</h1>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@mui/material@latest/umd/material-ui.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@latest/babel.min.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+/>
+    <div id="guestform"></div>
+    <script type="text/babel" src="{{ url_for('static', filename='js/guestcount.js') }}"></script>
+    <!-- <h1>Please RSVP by no later than DATE</h1>
     <p>We politely request that only the people listed in the invitation be present. We hope to have a bigger celebration with everyone at a different time!</p>
+    <div id="test"></div>
     <a href="/">Home</a><br><br>
     {% if not num %}
     <form method="post">
@@ -63,15 +79,9 @@
         </table>
         <input type="submit">
     </form>
-    {% endif %}
+    {% endif %} -->
 </body>
 <script>
-    function addGuest(){
-        let form = document.getElementById("guests")
-        let input = document.createElement("input")
-        input.type = "radio"
-        input.value = "test"
-        form.appendChild(input)
-    }
+
 </script>
 </html>

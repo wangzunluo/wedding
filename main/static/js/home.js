@@ -12,7 +12,8 @@
     typography,
     ThemeProvider,
     createTheme,
-    Grid
+    Grid,
+    Paper
   } = MaterialUI;
   
     class Home extends React.Component {
@@ -31,10 +32,11 @@
                   <div className="date">• 11 • 12 • 22 • CYPRESS • CA •</div>
                   <br></br>
                   <br></br>
-                  <div className='date'>Countdown until we are married!</div>
+                  <div className="timer">Countdown until we are married!</div>
                   <br></br>
                   <Countdown />
                 </Grid>
+                <Paper>Test</Paper>
                 <Grid item container xs={2} justifyContent="center">
                   <Grid item xs={6} >
                     <div className="footer">
