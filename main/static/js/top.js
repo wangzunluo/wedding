@@ -24,7 +24,7 @@ const {
 const theme = createTheme({
   typography: {
     fontFamily: 'luxus-brut, cursive',
-    fontSize: 40,
+    fontSize: '3vw',
     button: {
       textTransform: "none",
       fontWeight: 400,
@@ -52,9 +52,9 @@ function LinkTab(props) {
         color: 'white',
         '&.Mui-selected': {
           color: '#FFCAC2',
-          fontSize: 60,
+          fontSize: '3vw',
         },
-        fontSize: 60,
+        fontSize: '3vw',
       }}
       component="a"
       onClick={(event) => {
@@ -90,7 +90,7 @@ function App() {
   };
   return (
     
-    <Grid id="grid" xs={12} container justifyContent="flex-start" direction="column" alignItems="center" sx={{backgroundImage: image}}>
+    <Grid id="grid" item container xs={12} justifyContent="flex-start" direction="column" alignItems="center" sx={{backgroundImage: image}}>
       <Grid item container xs={2} direction="row">
         <Grid item xs={12}>
           <ThemeProvider theme={theme}>
