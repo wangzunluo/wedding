@@ -70,8 +70,8 @@ function LinkTab(props) {
 
 const backgrounds = {
   "/": `url(${"static/img/landing.jpg"})`,
-  "/ourstory": `url(${"static/img/whitepink.png"})`,
-  "/eventdetails": `url(${"static/img/blue.png"})`,
+  "/ourstory": `url(${"static/img/story.jpg"})`,
+  "/eventdetails": `url(${"static/img/event.jpg"})`,
   "/rsvp": `url(${"static/img/green.png"})`,
   "/registry": `url(${"static/img/purple.png"})`
 };

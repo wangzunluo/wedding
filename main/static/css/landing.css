@@ -127,15 +127,17 @@ html {
 }
 
 .Statement {
-    font-family: avocadocreamy;
-    color: #9D2101;
-    font-size: 40px;
+    font-family: montserrat, sans-serif;
+    color: #6A1600;
+    font-size: 2vw;
+    opacity: 1;
 }
 
 .Response {
-    font-family: avocadocreamy;
-    color: #DB968C;
-    font-size: 40px;
+    font-family: montserrat, sans-serif;
+    color: white;
+    font-size: 2vw;
+    opacity: 1;
 }
 
 .Details {
