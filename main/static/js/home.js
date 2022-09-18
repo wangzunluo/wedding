@@ -23,21 +23,14 @@
   
       render() {
           return (
-            <Grid item container xs={10} justifyContent="center" alignItems="center" direction="column">
-                <Grid item container xs={8} justifyContent="center" alignItems="center" direction="column">
-                  <div className="title">Jessica & Arwin</div>
-                  <div className="date">• 11 • 12 • 22 • CYPRESS • CA •</div>
-                  <div className="timer">Countdown until we are married!</div>
-                  <Countdown />
+            <Grid item container xs={10} direction="column">
+              <Grid item container xs={10} direction="row" justifyContent="center">
+              <Grid item xs={10}>
+                  <Paper sx={{height: "100%", backgroundColor: "#DB968C", opacity: "0.6", outline: "10px solid #DB968C", outlineOffset: "2px"}}>test</Paper>
                 </Grid>
-                <Grid item container xs={2} justifyContent="flex-end" direction="column">
-                  <Grid item xs={6} >
-                    <div className="footer">
-                      website created by arwin<br></br>
-                      designed by jessica
-                    </div>
-                  </Grid>
-                </Grid> 
+              </Grid>
+                
+                
             </Grid>
           );
       }
