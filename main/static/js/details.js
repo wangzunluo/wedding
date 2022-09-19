@@ -12,8 +12,25 @@
     typography,
     ThemeProvider,
     createTheme,
-    Grid
+    Grid,
+    Paper
   } = MaterialUI;
+
+  function RedPaper(props) {
+    let tabsx = {
+      height: "100%",
+      backgroundColor: "rgba(219,150,140,0.6)",
+      outline: "10px solid rgba(219,150,140,0.6)",
+      outlineOffset: "2px",
+      padding: "10px"
+    }
+    return (
+      <Paper 
+      sx={tabsx}
+      {...props}
+      />
+    )
+  }
   
     class Details extends React.Component {
       constructor(props) {
@@ -22,24 +39,28 @@
   
       render() {
           return (
-                <Grid item container xs={10} justifyContent="center" alignItems="center" direction="row">
+                <Grid item container xs={10} justifyContent="center" alignItems="center" direction="column">
                     <Grid item container xs={6}></Grid>
-                    <Grid item container xs={6} justifyContent="center" alignItems="center" direction="column" sx={{height: "100%"}}>
-                        <Grid item container xs={6} direction="column" justifyContent="flex-end" alignItems="center">
-                        <div className='Details'>November 11, 2022<br></br></div>
-                        <div className='Details'>Navy Golf Course<br></br></div>
-                        <div className='Details'>5660 Orangewood Ave.<br></br></div>
-                        <div className='Details'>Cypress, CA 90630<br></br></div>
-                        <div className='Details'>Ceremony @ 3 PM<br></br></div>
-                        <div className='Details'>Reception to follow</div>
-                        
-                        </Grid>
-                        <Grid item container xs={6} direction="column" spacing={0} justifyContent="center" alignItems="center">
-                            <Grid item xs={1}>
-                            <div className='Dress'>dress code: formal<br></br>black-tie optional</div>
+                    <Grid item container xs={4} justifyContent="center" alignItems="center" direction="row">
+                        <Grid item container xs={6}>
+                          <RedPaper>
+                            <Grid item container xs={12} justifyContent="center" alignItems="center" direction="column">
+                              <div className='Details'>November 12, 2022 | 3 PM | Navy Golf Course<br></br></div>
+                              <div className='Details'>5660 Orangewood Ave, Cypress, CA 90630<br></br></div>
+                              <div className='Details'>Reception to follow</div>
                             </Grid>
-                        </Grid>
-                        
+                          </RedPaper>
+                        </Grid>   
+                    </Grid>
+                    <Grid item container xs={2} justifyContent="center" alignItems="center" direction="row">
+                      <Grid item container xs={3}>
+                        <RedPaper>
+                        <Grid item container xs={12} justifyContent="center" alignItems="center" direction="column">
+                          <div className='Dress'>dress code: formal<br></br></div>
+                          <div className='Dress'>black-tie optional</div>
+                          </Grid>
+                        </RedPaper>
+                      </Grid>
                     </Grid>
                 </Grid>
           );

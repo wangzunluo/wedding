@@ -72,7 +72,7 @@ const backgrounds = {
   "/": `url(${"static/img/landing.jpg"})`,
   "/ourstory": `url(${"static/img/story.jpg"})`,
   "/eventdetails": `url(${"static/img/event.jpg"})`,
-  "/rsvp": `url(${"static/img/green.png"})`,
+  "/rsvp": `url(${"static/img/rsvp.jpg"})`,
   "/registry": `url(${"static/img/purple.png"})`
 };
 

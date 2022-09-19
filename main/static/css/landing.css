@@ -140,21 +140,34 @@ html {
     opacity: 1;
 }
 
+.rsvpdetails {
+    font-family: montserrat, sans-serif;
+    color: white;
+    font-size: 2vw;
+    opacity: 1;
+}
+
+.rsvpdue {
+    font-family: montserrat, sans-serif;
+    color: #6A1600;
+    font-size: 2vw;
+    opacity: 1;
+}
+
 .Details {
-    font-family: josefin-slab, serif;
-    font-weight: 400;
+    font-family: montserrat, sans-serif;
     font-style: normal;
-    color: #76A9C8;
-    font-size: 40px;
+    color: white;
+    font-size: 2vw;
 }
 
 .Dress {
     font-family: luxus-brut, cursive;
     font-weight: 200;
     font-style: normal;
-    color: #4E82A2;
-    font-size: 60px;
-    line-height: 60px;
+    color: white;
+    font-size: 3vw;
+    line-height: 2vw;
 }
 
 .message {

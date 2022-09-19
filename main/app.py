@@ -50,6 +50,7 @@ def story():
 
 @app.route('/registry')
 @app.route('/eventdetails')
+@app.route('/rsvp')
 def event_details():
     return render_template('landing.html')
 

@@ -21,7 +21,8 @@
       height: "100%",
       backgroundColor: "rgba(219,150,140,0.6)",
       outline: "10px solid rgba(219,150,140,0.6)",
-      outlineOffset: "2px"
+      outlineOffset: "2px",
+      padding: "10px"
     }
     return (
       <Paper 
