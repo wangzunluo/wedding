@@ -48,7 +48,7 @@
                       <Grid item container xs={12} direction="column" justifyContent="center" alignItems="center" sx={{height: "100%"}}>
                         <div className='rsvpdetails'>We politely request<br></br></div>
                         <div className='rsvpdetails'>that only the<br></br></div>
-                        <div className='rsvpdetails'>people listed in<br></br></div>
+                        <div className='rsvpdetails'>people listed on<br></br></div>
                         <div className='rsvpdetails'>the invitation be<br></br></div>
                         <div className='rsvpdetails'>present. We hope<br></br></div>
                         <div className='rsvpdetails'>to have a bigger<br></br></div>

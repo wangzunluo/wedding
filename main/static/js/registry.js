@@ -41,8 +41,8 @@
           return (
                 <Grid item container xs={10} justifyContent="center" alignItems="center" direction="row">
                     
-                    <Grid item container xs={4} justifyContent="center" alignItems="center" direction="column" sx={{height: "100%"}}>
-                      <Grid item container xs={9} justifyContent="center" alignItems="center" direction="column">
+                    <Grid item container xs={4} justifyContent="flex-start" alignItems="center" direction="column" sx={{height: "100%"}}>
+                      <Grid item container xs={10} justifyContent="center" alignItems="center" direction="column">
                         <RedPaper>
                           <Grid item container xs={12} justifyContent="center" alignItems="center" direction="column" sx={{height: "100%"}}>
                             <div className='Details'>Your presence<br></br></div>
