@@ -6,6 +6,7 @@ const { Home } = Landing;
 const { Details } = Information;
 const { RSVP } = Forms;
 const { Registry } = Shopping;
+const { Accommodation } = Hotel;
 
 console.log(Object.keys(window));
 
@@ -73,6 +74,7 @@ const backgrounds = {
   "/ourstory": `url(${"static/img/story.jpg"})`,
   "/eventdetails": `url(${"static/img/event.jpg"})`,
   "/rsvp": `url(${"static/img/rsvp.jpg"})`,
+  "/accommodation": `url(${"static/img/accommodation.jpg"})`,
   "/registry": `url(${"static/img/purple.png"})`
 };
 
@@ -109,6 +111,7 @@ function App() {
         {value === "/ourstory" && <Story />}
         {value === "/eventdetails" && <Details />}
         {value === "/rsvp" && <RSVP />}
+        {value === "/accommodation" && <Accommodation />}
         {value === "/registry" && <Registry />}
         {value === "/guests" && <Guests />}
       {/*<img src="https://drive.google.com/uc?id=11mYhQCmb-94bxXIOuSdPxiaollIUXNAL&export=download"></img>*/}
