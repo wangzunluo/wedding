@@ -25,7 +25,6 @@ const {
 const theme = createTheme({
   typography: {
     fontFamily: 'luxus-brut, cursive',
-    fontSize: '3vw',
     button: {
       textTransform: "none",
       fontWeight: 400,
@@ -75,7 +74,7 @@ const backgrounds = {
   "/eventdetails": `url(${"static/img/event.jpg"})`,
   "/rsvp": `url(${"static/img/rsvp.jpg"})`,
   "/accommodation": `url(${"static/img/accommodation.jpg"})`,
-  "/registry": `url(${"static/img/purple.png"})`
+  "/registry": `url(${"static/img/registry.jpg"})`
 };
 
 function App() {
