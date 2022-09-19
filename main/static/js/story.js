@@ -41,7 +41,6 @@
           return (
                 <Grid item container xs={10} justifyContent="flex-start" alignItems="flex-start" direction="row">
                     <Grid item container xs={5} justifyContent="flex-start" alignItems="center" direction="column" sx={{height: "100%"}}>
-                      <Grid item xs={1}></Grid>
                       <Grid item xs={7}>
                       <RedPaper>
                         <Grid item container justifyContent="center" alignItems="center" direction="column" sx={{height: "100%"}}>
