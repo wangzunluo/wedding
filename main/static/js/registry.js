@@ -56,7 +56,7 @@
                             <div className='Details'>list on Amazon.<br></br></div>
                             <div className='Details'>Otherwise, a<br></br></div>
                             <div className='Details'>cash gift to use<br></br></div>
-                            <div className='Details'>towards out honeymoon<br></br></div>
+                            <div className='Details'>towards our honeymoon<br></br></div>
                             <div className='Details'>would be very<br></br></div>
                             <div className='Details'>welcome.</div>
                           </Grid>
@@ -65,7 +65,7 @@
                     </Grid>
                     <Grid item container xs={7} justifyContent="flex-end" alignItems="center" direction="column" sx={{height: "100%"}}>
                       <Grid item xs={1}>
-                        <Link href="https://www.amazon.com/wedding/share/jessicarwin" underline="none">
+                        <Link href="https://www.amazon.com/wedding/share/jessicarwin" underline="none" rel="noopener noreferrer" target="_blank">
                         <RedPaper >
                         <Grid item container xs={12} justifyContent="center" alignItems="center" direction="column" sx={{height: "100%"}}>
                           <div className='Details'>

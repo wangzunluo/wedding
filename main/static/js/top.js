@@ -86,6 +86,7 @@ function App() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
     setImage(backgrounds[newValue]);
+    window.history.push(newValue)
     console.log(newValue)
     console.log('test')
   };
