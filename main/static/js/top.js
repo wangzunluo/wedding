@@ -83,13 +83,20 @@ function App() {
 
   console.log(value)
   console.log('funk')
+  
   const handleChange = (event, newValue) => {
     setValue(newValue);
     setImage(backgrounds[newValue]);
-    window.history.push(newValue)
+    window.history.pushState(newValue,'',newValue)
     console.log(newValue)
     console.log('test')
   };
+
+  window.addEventListener('popstate', (event) => {
+    setValue(event.state)
+    setImage(backgrounds[event.state]);
+  });
+
   return (
     
     <Grid id="grid" item container xs={12} justifyContent="flex-start" direction="column" alignItems="center" sx={{backgroundImage: image}}>
