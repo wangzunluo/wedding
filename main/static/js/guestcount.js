@@ -26,12 +26,14 @@ const {
 
 const Sides = [
   "Grilled Whole Vegetables",
-  "Potatos Au Gratin"
+  "Potatos Au Gratin",
+  "Need Accommodation"
 ]
 
 const MainCourses = [
   "Steak",
-  "Salmon"
+  "Salmon",
+  "Need Accommodation"
 ]
 
 const KidsCourses = [
@@ -63,7 +65,8 @@ function App() {
         <DialogContentText>
             Entree choices<br></br>
             Steak: grilled flat iron steak with traditional chimichurri sauce<br></br><br></br>
-            Salmon: Asian panko-crusted salmon with 5 spice seasoning & miso honey glaze
+            Salmon: Asian panko-crusted salmon with 5 spice seasoning & miso honey glaze<br/><br/>
+            Need Accommodation: If you have dietary restrictions and cannot choose either option, please choose this option and contact Jessica or Arwin.
           </DialogContentText>
           <TextField
             margin="dense"
@@ -88,7 +91,8 @@ function App() {
           <DialogContentText>
             Side choices<br></br>
             Grilled Whole Vegetables: Zucchini, eggplant, squash, onion, red peppers, tossed in olive oil.<br></br><br></br>
-            Potatoes Au Gratin: Thinly sliced potatoes and onion layered, creamy cheese sauce.
+            Potatoes Au Gratin: Thinly sliced potatoes and onion layered, creamy cheese sauce.<br></br><br></br>
+            Need Accommodation: If you have dietary restrictions and cannot choose either option, please choose this option and contact Jessica or Arwin.
           </DialogContentText>
           <TextField
             margin="dense"
