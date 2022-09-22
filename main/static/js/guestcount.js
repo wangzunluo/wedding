@@ -17,7 +17,9 @@ const {
   MenuItem,
   Card,
   CardHeader,
-  CardContent
+  CardContent,
+  Switch,
+  FormControlLabel
 } = MaterialUI;
 
 
@@ -31,6 +33,12 @@ const MainCourses = [
   "Salmon"
 ]
 
+const KidsCourses = [
+  "Chicken Tenders and Fries",
+  "Mac & Cheese",
+  "Penne Pasta and Marinara"
+]
+
 function App() {
   const RSVPCard = (props) => {
     return (
@@ -39,22 +47,116 @@ function App() {
         <CardHeader title={props.info[0]+' '+props.info[1]}/>
         <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Entree Selection: {props.info[2]}<br></br>
-          Side Selection: {props.info[3]}
+          Entree Selection: {props.info[3]}
         </Typography>
+        {!props.info[2] && <Typography variant="body2" color="text.secondary">Side Selection: {props.info[4]}</Typography>}
       </CardContent>
       </Card>
       </Grid>
     )
   }
+  
+  const AdultMenu = (props) => {
+    return (
+      <div>
+        <DialogContentText>
+            Entree choices<br></br>
+            Steak: grilled flat iron steak with traditional chimichurri sauce<br></br><br></br>
+            Salmon: Asian panko-crusted salmon with 5 spice seasoning & miso honey glaze
+          </DialogContentText>
+          <TextField
+            margin="dense"
+            id="foodmain"
+            label="Entree"
+            select
+            variant="outlined"
+            value={selectedMain}
+            onChange={handleMainChange}
+            helperText="Please choose your entree"
+            required
+          >
+            {
+              MainCourses.map(course => (
+                <MenuItem key={course} value={course}>
+                  {course}
+                </MenuItem>
+              ))
+            }
+          </TextField>
+          <Divider></Divider>
+          <DialogContentText>
+            Side choices<br></br>
+            Grilled Whole Vegetables: Zucchini, eggplant, squash, onion, red peppers, tossed in olive oil.<br></br><br></br>
+            Potatoes Au Gratin: Thinly sliced potatoes and onion layered, creamy cheese sauce.
+          </DialogContentText>
+          <TextField
+            margin="dense"
+            id="foodside"
+            label="Side"
+            select
+            variant="outlined"
+            value={selectedSide}
+            onChange={handleSideChange}
+            helperText="Please choose your side"
+            required
+          >
+            {
+              Sides.map(side => (
+                <MenuItem key={side} value={side}>
+                  {side}
+                </MenuItem>
+              ))
+            }
+          </TextField>
+      </div>
+    )
+  }
 
-  const [rsvps, addRsvp] = React.useState([['Arwin','Wang','Steak','Grilled Whole Vegetables']]);
-  const handleSubmitRSVP = () => {
+  const KidsMenu = (props) => {
+    return (
+      <div>
+        <DialogContentText>
+            Kids Menu<br></br>
+            Chicken Tenders and Fries: Boneless fried chicken strips served with ketchup, fresh fruit cup and French fries<br></br><br></br>
+            Mac & Cheese: Pasta tossed in creamy cheddar & jack cheese sauce, served with fruit cup<br></br><br></br>
+            Penne Pasta and Marinara: Penne pasta tossed in a marinara sauce topped with melted mozzarella and parmesan cheese, served with fresh fruit cup
+          </DialogContentText>
+          <TextField
+            margin="dense"
+            id="kidsfood"
+            label="Entree"
+            select
+            variant="outlined"
+            value={selectedKids}
+            onChange={handleKidsChange}
+            helperText="Please choose kids entree"
+            required
+          >
+            {
+              KidsCourses.map(course => (
+                <MenuItem key={course} value={course}>
+                  {course}
+                </MenuItem>
+              ))
+            }
+          </TextField>
+      </div>
+    )
+  }
+  
+
+  const [rsvps, addRsvp] = React.useState([['Arwin','Wang', false, 'Steak','Grilled Whole Vegetables'], ['Arwin','Wang', true, 'Steak']]);
+  const handlePostRSVP = () => {
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", '/rsvp/form', true)
+    xhr.setRequestHeader('Content-Type', 'application/json')
+    xhr.send(JSON.stringify(rsvps))
     console.log('send to server')
+    window.location.href = '/success'
   };
 
   const [openForm, setFormOpen] = React.useState(false);
-  const handleAddGuest = () => {
+  const handleFormOpen = () => {
     setFormOpen(true);
   };
 
@@ -63,6 +165,7 @@ function App() {
     setMain('Steak')
     setFname('')
     setLname('')
+    setKids('Chicken Tenders and Fries')
   };
 
   const handleCloseForm = () => {
@@ -89,9 +192,23 @@ function App() {
     setMain(event.target.value);
   };
 
-  const handleGuestSubmit = (event) => {
-    
-    rsvps.push([fname, lname, selectedMain, selectedSide])
+  const [selectedKids, setKids] = React.useState("Chicken Tenders and Fries");
+  const handleKidsChange = (event) => {
+    setKids(event.target.value);
+  };
+
+  const [showKids, setShowKids] = React.useState(false);
+  const handleShowKids = (event) => {
+    setShowKids(event.target.checked);
+  };
+
+  const handleAddGuest = (event) => {
+    event.preventDefault()
+    if (showKids) {
+      rsvps.push([fname, lname, showKids, selectedKids])
+    } else {
+      rsvps.push([fname, lname, showKids, selectedMain, selectedSide])
+    }
     handleCloseForm()
   }
 
@@ -109,26 +226,26 @@ function App() {
       <Grid item container xs={8} direction="row" justifyContent="center" alignItems="center">
         <Grid item container xs={10} direction="column" sx={{height: "100%"}} >
           <Grid item container xs={12} direction="row" alignItems="flex-start" justifyContent="flex-start">
-            {rsvps !== [] && rsvps.map(rsvp => (
-              <RSVPCard info={rsvp}/>
+            {rsvps !== [] && rsvps.map((rsvp, i) => (
+              <RSVPCard key={i} info={rsvp}/>
             ))}
           </Grid>
         </Grid>
       </Grid>
       <Grid item container xs={1} direction="row">
         <Grid item container xs={6} alignItems="flex-end" justifyContent="flex-start">
-        <Fab variant="extended" onClick={handleAddGuest} >
+        <Fab variant="extended" onClick={handleFormOpen} >
           Add Guest
         </Fab>
         </Grid>
         <Grid item container xs={6} alignItems="flex-end" justifyContent="flex-end">
-        <Fab variant="extended" onClick={handleSubmitRSVP}>
+        <Fab variant="extended" onClick={handlePostRSVP}>
           Submit RSVPS
         </Fab>
         </Grid>
       </Grid>
       <Dialog open={openForm} onClose={handleCloseForm}>
-        <form onSubmit={handleGuestSubmit} method="POST">
+        <form onSubmit={handleAddGuest} method="POST">
       <DialogTitle>RSVP Form</DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -145,7 +262,7 @@ function App() {
             required
           />
           <TextField
-            autoFocus
+            
             margin="dense"
             id="lname"
             label="Last Name"
@@ -154,62 +271,9 @@ function App() {
             onChange={handleLnameChange}
             required
           />
-          <br></br>
           <Divider></Divider>
-          <br></br>
-          <DialogContentText>
-            Entree choices<br></br>
-            Steak: grilled flat iron steak with traditional chimichurri sauce<br></br>
-            Salmon: Asian panko-crusted salmon with 5 spice seasoning & miso honey glaze
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="foodmain"
-            label="Entree"
-            select
-            variant="outlined"
-            value={selectedMain}
-            onChange={handleMainChange}
-            helperText="Please choose your entree"
-            required
-          >
-            {
-              MainCourses.map(course => (
-                <MenuItem key={course} value={course}>
-                  {course}
-                </MenuItem>
-              ))
-            }
-          </TextField>
-          <br></br>
-          <Divider></Divider>
-          <br></br>
-          <DialogContentText>
-            Side choices<br></br>
-            Grilled Whole Vegetables: Zucchini, eggplant, squash, onion, red peppers, tossed in olive oil.<br></br>
-            Potatoes Au Gratin: Thinly sliced potatoes and onion layered, creamy cheese sauce.
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="foodside"
-            label="Side"
-            select
-            variant="outlined"
-            value={selectedSide}
-            onChange={handleSideChange}
-            helperText="Please choose your side"
-            required
-          >
-            {
-              Sides.map(side => (
-                <MenuItem key={side} value={side}>
-                  {side}
-                </MenuItem>
-              ))
-            }
-          </TextField>
+          <FormControlLabel control={<Switch checked={showKids} onChange={handleShowKids}/>} label="Show Kids Menu (ages 4-12)" />
+          { (!showKids && <AdultMenu/>) || (showKids && <KidsMenu/>) }
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseForm}>Cancel</Button>

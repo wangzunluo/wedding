@@ -1,5 +1,6 @@
 
 from mimetypes import init
+import re
 from flask import Flask, redirect, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.middleware.proxy_fix import ProxyFix
@@ -22,9 +23,10 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     fname = db.Column(db.String(80), unique=False, nullable=False)
     lname = db.Column(db.String(80), unique=False, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=True)
-    phone = db.Column(db.String(20), unique=True, nullable=True)
-    food = db.Column(db.String(20), unique=False, nullable=False)
+    entree = db.Column(db.String(20), unique=False, nullable=True)
+    side = db.Column(db.String(20), unique=False, nullable=True)
+    childfood = db.Column(db.String(20), unique=False, nullable=True)
+    ischild = db.Column(db.Boolean(1), unique=False, nullable=False)
 
     def __repr__(self):
         return '{0} {1}'.format(self.fname, self.lname)
@@ -65,31 +67,32 @@ def guests():
 def test():
     return render_template('test.html')
 
+@app.route('/success')
+def success():
+    return render_template('success.html')
+
 
 @app.route('/rsvp/form', methods=['GET', 'POST'])
 def rsvp():
     if request.method == 'GET':
         return render_template('rsvp.html')
     elif request.method == 'POST':
-        form = request.form
-        fnames = form.getlist('fname')
-        lnames = form.getlist('lname')
-        email = form['email']
-        phone = form.get('phone')
-        foods = []
-        for i in range(1,len(fnames)+1):
-            foods.append(form['food'+str(i)])
+        print(request)
+        print(request.json)
+        users = request.json
+        print(dir(request))
+        print('hi')
+        print('hi')
 
-        
-        person = User(fname=fnames[0], lname=lnames[0], food=foods[0], email=email)
-        db.session.add(person)
-        counter = 1
-        while counter < len(fnames):
-            person = User(fname=fnames[counter], lname=lnames[counter], food=foods[counter])
-            db.session.add(person)
-            counter += 1
-        db.session.commit()
-        return render_template('success.html', name=fnames[0])
+        # for user in users:
+        #     if user[2]:
+        #         person = User(fname=user[0], lname=user[1], ischild=user[2], childfood=user[3])
+        #     else:
+        #         person = User(fname=user[0], lname=user[1], ischild=user[2], entree=user[3], side=user[4])
+        #     db.session.add(person)
+        # db.session.commit()
+
+        return render_template('success.html')
     else:
         return render_template('error.html', method=request.method)
 

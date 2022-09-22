@@ -14,12 +14,19 @@
     <table>
         <tr>
             <th>Guest</th>
-            <th>Food Preference</th>
+            <th>Entree</th>
+            <th>Side</th>
         </tr>
     {% for user in users %}
         <tr>
             <td>{{user.fname}} {{user.lname}}</td>
-            <td>{{user.food}}</td>
+            {% if user.ischild %}
+                <td>{{user.childfood}}</td>
+                <td>None</td>
+            {% else %}
+                <td>{{user.entree}}</td>
+                <td>{{user.side}}</td>
+            {% endif %}
         </tr>
     {% endfor %}
     </table>
