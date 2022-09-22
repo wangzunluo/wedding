@@ -19,7 +19,8 @@ const {
   CardHeader,
   CardContent,
   Switch,
-  FormControlLabel
+  FormControlLabel,
+  Paper
 } = MaterialUI;
 
 
@@ -42,8 +43,8 @@ const KidsCourses = [
 function App() {
   const RSVPCard = (props) => {
     return (
-      <Grid item container xs={4} alignItems="center" justifyContent="center">
-      <Card>
+      <Grid item component={Card} xs={4}>
+      <Card >
         <CardHeader title={props.info[0]+' '+props.info[1]}/>
         <CardContent>
         <Typography variant="body2" color="text.secondary">
@@ -145,7 +146,7 @@ function App() {
   }
   
 
-  const [rsvps, addRsvp] = React.useState([['Arwin','Wang', false, 'Steak','Grilled Whole Vegetables'], ['Arwin','Wang', true, 'Steak']]);
+  const [rsvps, addRsvp] = React.useState([['Arwin','Wang', false, 'Steak','Grilled Whole Vegetables'], ['Aaron','Wang', true, 'Chicken Tenders and Fries']]);
   const handlePostRSVP = () => {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", '/rsvp/form', true)
@@ -225,11 +226,14 @@ function App() {
       <Grid item xs={1}></Grid>
       <Grid item container xs={8} direction="row" justifyContent="center" alignItems="center">
         <Grid item container xs={10} direction="column" sx={{height: "100%"}} >
-          <Grid item container xs={12} direction="row" alignItems="flex-start" justifyContent="flex-start">
+        <Paper elevation={24} sx={{height: "100%"}}>
+          <Grid item container xs={12} direction="row" alignItems="stretch" >
             {rsvps !== [] && rsvps.map((rsvp, i) => (
               <RSVPCard key={i} info={rsvp}/>
             ))}
+           
           </Grid>
+        </Paper>
         </Grid>
       </Grid>
       <Grid item container xs={1} direction="row">
