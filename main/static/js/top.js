@@ -69,12 +69,12 @@ function LinkTab(props) {
 }
 
 const backgrounds = {
-  "/": `url(${"static/img/landing.jpg"})`,
-  "/ourstory": `url(${"static/img/story.jpg"})`,
-  "/eventdetails": `url(${"static/img/event.jpg"})`,
-  "/rsvp": `url(${"static/img/rsvp.jpg"})`,
-  "/accommodation": `url(${"static/img/accommodation.jpg"})`,
-  "/registry": `url(${"static/img/registry.jpg"})`
+  "/": `url(${"static/img/landing-min.jpg"})`,
+  "/ourstory": `url(${"static/img/story-min.jpg"})`,
+  "/eventdetails": `url(${"static/img/event-min.jpg"})`,
+  "/rsvp": `url(${"static/img/rsvp-min.jpg"})`,
+  "/accommodation": `url(${"static/img/accommodation-min.jpg"})`,
+  "/registry": `url(${"static/img/registry-min.jpg"})`
 };
 
 function App() {
