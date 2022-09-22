@@ -57,11 +57,11 @@ def story():
 def event_details():
     return render_template('landing.html')
 
-@app.route('/guests')
-def guests():
-    users = User.query.all()
-    users.sort(key=lambda user : user.fname.lower())
-    return render_template('guests.html', users=users)
+# @app.route('/guests')
+# def guests():
+#     users = User.query.all()
+#     users.sort(key=lambda user : user.fname.lower())
+#     return render_template('guests.html', users=users)
 
 @app.route('/test')
 def test():
@@ -97,29 +97,29 @@ def rsvp():
         return render_template('error.html', method=request.method)
 
 
-@app.route('/rsvp/form/<num>', methods=['GET', 'POST'])
-def rsvp_num(num=None):
-    if request.method == 'GET':
-        return render_template('rsvp.html', num=int(num))
-    elif request.method == 'POST':
-        form = request.form
-        fnames = form.getlist('fname')
-        lnames = form.getlist('lname')
-        email = form['email']
-        phone = form.get('phone')
-        foods = []
-        for i in range(1,len(fnames)+1):
-            foods.append(form['food'+str(i)])
+# @app.route('/rsvp/form/<num>', methods=['GET', 'POST'])
+# def rsvp_num(num=None):
+#     if request.method == 'GET':
+#         return render_template('rsvp.html', num=int(num))
+#     elif request.method == 'POST':
+#         form = request.form
+#         fnames = form.getlist('fname')
+#         lnames = form.getlist('lname')
+#         email = form['email']
+#         phone = form.get('phone')
+#         foods = []
+#         for i in range(1,len(fnames)+1):
+#             foods.append(form['food'+str(i)])
 
         
-        person = User(fname=fnames[0], lname=lnames[0], food=foods[0], email=email)
-        db.session.add(person)
-        counter = 1
-        while counter < len(fnames):
-            person = User(fname=fnames[counter], lname=lnames[counter], food=foods[counter])
-            db.session.add(person)
-            counter += 1
-        db.session.commit()
-        return render_template('success.html', name=fnames[0])
-    else:
-        return render_template('error.html', method=request.method)
+#         person = User(fname=fnames[0], lname=lnames[0], food=foods[0], email=email)
+#         db.session.add(person)
+#         counter = 1
+#         while counter < len(fnames):
+#             person = User(fname=fnames[counter], lname=lnames[counter], food=foods[counter])
+#             db.session.add(person)
+#             counter += 1
+#         db.session.commit()
+#         return render_template('success.html', name=fnames[0])
+#     else:
+#         return render_template('error.html', method=request.method)
