@@ -50,6 +50,8 @@
                           <div className='Details'>Beach Blvd.<br></br><br></br></div>
                           <div className='Details'>Single king:<br></br></div>
                           <div className='Details'>$165/night<br></br></div>
+                          <div className='Details'>2 queen:<br></br></div>
+                          <div className='Details'>$175/night<br></br></div>
                           <div className='Details'>Call 562-596-8330<br></br></div>
                           <div className='Details'>Group name:<br></br></div>
                           <div className='Details'>The Wangs<br></br></div>
