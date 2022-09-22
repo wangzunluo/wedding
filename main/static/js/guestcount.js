@@ -146,7 +146,7 @@ function App() {
   }
   
 
-  const [rsvps, addRsvp] = React.useState([['Arwin','Wang', false, 'Steak','Grilled Whole Vegetables'], ['Aaron','Wang', true, 'Chicken Tenders and Fries']]);
+  const [rsvps, addRsvp] = React.useState([]);
   const handlePostRSVP = () => {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", '/rsvp/form', true)
@@ -167,6 +167,7 @@ function App() {
     setFname('')
     setLname('')
     setKids('Chicken Tenders and Fries')
+    setShowKids(false);
   };
 
   const handleCloseForm = () => {
