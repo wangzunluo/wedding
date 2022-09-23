@@ -82,7 +82,7 @@ let itemData = [
   {img: "static/gallery/7.jpg", rows: 4, cols: 2},
   {img: "static/gallery/10.jpg", rows: 4, cols: 2},
   {img: "static/gallery/11.jpg", rows: 4, cols: 2},
-  {img: "static/gallery/12.jpg", rows: 10, cols: 4},
+  {img: "static/gallery/12.jpg", rows: 12, cols: 4},
   {img: "static/gallery/13.jpg", rows: 4, cols: 2},
   {img: "static/gallery/14.jpg", rows: 4, cols: 2},
   {img: "static/gallery/17.jpg", rows: 4, cols: 2},
