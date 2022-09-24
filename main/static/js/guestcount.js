@@ -295,23 +295,23 @@ function App() {
     setLname(fvalues[1])
     setShowKids(fvalues[2]);
     if (fvalues[2]) {
-      setMain('Steak')
-      setSide('Grilled Whole Vegetables')
+      setMain('')
+      setSide('')
       setKids(fvalues[3])
     } else {
       setMain(fvalues[3])
       setSide(fvalues[4])
-      setKids('Chicken Tenders and Fries')
+      setKids('')
     }
     setSubmitValue("Confirm Changes")
   }
 
   const resetForm = () => {
-    setSide('Grilled Whole Vegetables')
-    setMain('Steak')
+    setSide('')
+    setMain('')
     setFname('')
     setLname('')
-    setKids('Chicken Tenders and Fries')
+    setKids('')
     setShowKids(false);
     setSubmitValue("Add Guest")
     setEditNum('')
@@ -331,17 +331,17 @@ function App() {
     setLname(event.target.value)
   }
 
-  const [selectedSide, setSide] = React.useState('Grilled Whole Vegetables');
+  const [selectedSide, setSide] = React.useState('');
   const handleSideChange = (event) => {
     setSide(event.target.value);
   };
 
-  const [selectedMain, setMain] = React.useState('Steak');
+  const [selectedMain, setMain] = React.useState('');
   const handleMainChange = (event) => {
     setMain(event.target.value);
   };
 
-  const [selectedKids, setKids] = React.useState("Chicken Tenders and Fries");
+  const [selectedKids, setKids] = React.useState("");
   const handleKidsChange = (event) => {
     setKids(event.target.value);
   };
