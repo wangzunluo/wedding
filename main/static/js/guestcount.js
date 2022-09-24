@@ -20,13 +20,79 @@ const {
   CardContent,
   Switch,
   FormControlLabel,
-  Paper
+  Paper,
+  IconButton,
+  Menu
 } = MaterialUI;
+
+const options = [
+  "None",
+  "Atria",
+  "Callisto",
+  "Dione",
+  "Ganymede",
+  "Hangouts Call",
+  "Luna",
+  "Oberon",
+  "Phobos",
+  "Pyxis",
+  "Sedna",
+  "Titania",
+  "Triton",
+  "Umbriel"
+];
+
+const ITEM_HEIGHT = 48;
+
+function ModifyMenu(props) {
+  const item = props.num
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+  const handleEdit = () => {
+    handleMenuClose()
+    props.handleEdit()
+  }
+  const handleDelete = () => {
+    handleMenuClose()
+    props.handleDelete()
+  }
+  return (
+    <div>
+      <IconButton
+        aria-label="more"
+        id="long-button1"
+        aria-haspopup="true"
+        onClick={handleClick}
+      >
+        <i className="material-icons">more_vert</i>
+      </IconButton>
+      <Menu
+        id="long-menu"
+        MenuListProps={{
+          "aria-labelledby": "long-button"
+        }}
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleMenuClose}
+      >
+        <MenuItem key={"edit"} onClick={handleEdit}>Edit</MenuItem>
+        <MenuItem key={"delete"} onClick={handleDelete}>Delete</MenuItem>
+
+      </Menu>
+    </div>
+  );
+}
 
 
 const Sides = [
   "Grilled Whole Vegetables",
-  "Potatos Au Gratin",
+  "Potatoes Au Gratin",
   "Need Accommodation"
 ]
 
@@ -43,11 +109,64 @@ const KidsCourses = [
 ]
 
 function App() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const menuOpen = Boolean(anchorEl);
+  const handleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget)
+    console.log(event.currentTarget)
+    console.log(anchorEl)
+  };
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+  const [editNum, setEditNum] = React.useState('')
+
+  const handleEdit = (fvalues, num) => {
+    console.log('edit')
+    console.log(fvalues)
+    setForm(fvalues)
+    setEditNum(num)
+    handleFormOpen()
+  };
+  const handleDelete = (num) => {
+    console.log('delete');
+    rsvps[num]= []
+    setRsvp(rsvps)
+    setRsvpUi(rsvps.map((rsvp, i) => (<RSVPCard key={i} info={rsvp} num={i}/>)))
+  };
+
   const RSVPCard = (props) => {
+    if (props.info.length) {
     return (
       <Grid item component={Card} xs={4}>
       <Card >
-        <CardHeader title={props.info[0]+' '+props.info[1]}/>
+        <CardHeader title={props.info[0]+' '+props.info[1]} action={
+    //       <div>
+    //       <IconButton
+    //     aria-label="more"
+    //     id={"long-button"+props.num}
+    //     aria-controls={open ? 'long-menu' : undefined}
+    //     aria-expanded={open ? 'true' : undefined}
+    //     aria-haspopup="true"
+    //     onClick={handleMenuClick}
+    //   >
+    //     <i className="material-icons">more_vert</i>
+    //   </IconButton>
+    //   <Menu
+    //   id={"long-menu"+props.num}
+    //   MenuListProps={{
+    //     'aria-labelledby': 'long-button',
+    //   }}
+    //   anchorEl={anchorEl}
+    //   open={menuOpen}
+    //   onClose={handleMenuClose}>
+        
+    //   <MenuItem key={"edit"} onClick={handleMenuClose}>Edit</MenuItem>
+    //   <MenuItem key={"delete"} onClick={handleMenuClose}>Delete</MenuItem>
+    // </Menu>
+    // </div>
+    <ModifyMenu num={props.num} handleEdit={() => handleEdit(props.info, props.num)} handleDelete={() => handleDelete(props.num)}/>
+        }/>
         <CardContent>
         <Typography variant="body2" color="text.secondary">
           Entree Selection: {props.info[3]}
@@ -57,6 +176,9 @@ function App() {
       </Card>
       </Grid>
     )
+      } else {
+        return 
+      }
   }
   
   const AdultMenu = (props) => {
@@ -150,7 +272,8 @@ function App() {
   }
   
 
-  const [rsvps, addRsvp] = React.useState([]);
+  const [rsvps, setRsvp] = React.useState([]);
+  const [rsvpui, setRsvpUi] = React.useState(rsvps.map((rsvp, i) => (<RSVPCard key={i} info={rsvp} num={i}/>)))
   const handlePostRSVP = () => {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", '/rsvp/form', true)
@@ -165,6 +288,24 @@ function App() {
     setFormOpen(true);
   };
 
+  const [submitValue, setSubmitValue] = React.useState("Add Guest");
+
+  const setForm = (fvalues) => {
+    setFname(fvalues[0])
+    setLname(fvalues[1])
+    setShowKids(fvalues[2]);
+    if (fvalues[2]) {
+      setMain('Steak')
+      setSide('Grilled Whole Vegetables')
+      setKids(fvalues[3])
+    } else {
+      setMain(fvalues[3])
+      setSide(fvalues[4])
+      setKids('Chicken Tenders and Fries')
+    }
+    setSubmitValue("Confirm Changes")
+  }
+
   const resetForm = () => {
     setSide('Grilled Whole Vegetables')
     setMain('Steak')
@@ -172,11 +313,13 @@ function App() {
     setLname('')
     setKids('Chicken Tenders and Fries')
     setShowKids(false);
+    setSubmitValue("Add Guest")
+    setEditNum('')
   };
 
   const handleCloseForm = () => {
-    resetForm();
     setFormOpen(false);
+    resetForm();
   };
 
   const [fname, setFname] = React.useState('');
@@ -208,14 +351,30 @@ function App() {
     setShowKids(event.target.checked);
   };
 
+  
+
   const handleAddGuest = (event) => {
     event.preventDefault()
-    if (showKids) {
-      rsvps.push([fname, lname, showKids, selectedKids])
+    if (submitValue === "Add Guest") {
+      if (showKids) {
+        rsvps.push([fname, lname, showKids, selectedKids])
+      } else {
+        rsvps.push([fname, lname, showKids, selectedMain, selectedSide])
+      }
     } else {
-      rsvps.push([fname, lname, showKids, selectedMain, selectedSide])
+      let rcopy = rsvps
+      if (showKids) {
+        rsvps[editNum] = [fname, lname, showKids, selectedKids]
+      } else {
+        console.log("other")
+        console.log(editNum)
+        rsvps[parseInt(editNum)] = [fname, lname, showKids, selectedMain, selectedSide]
+      }
+      console.log("done")
     }
+    console.log(rsvps)
     handleCloseForm()
+    setRsvpUi(rsvps.map((rsvp, i) => (<RSVPCard key={i} info={rsvp} num={i}/>)))
   }
 
   return (
@@ -233,9 +392,7 @@ function App() {
         <Grid item container xs={10} direction="column" sx={{height: "100%"}} >
         <Paper elevation={24} sx={{height: "100%"}}>
           <Grid item container xs={12} direction="row" alignItems="stretch" >
-            {rsvps !== [] && rsvps.map((rsvp, i) => (
-              <RSVPCard key={i} info={rsvp}/>
-            ))}
+            {rsvps !== [] && rsvpui}
            
           </Grid>
         </Paper>
@@ -286,7 +443,7 @@ function App() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseForm}>Cancel</Button>
-          <Button type="submit">Add guest</Button>
+          <Button type="submit">{submitValue}</Button>
         </DialogActions>
         </form>
       </Dialog>
@@ -294,7 +451,7 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.querySelector("#guestform")).render(
+const root = ReactDOM.createRoot(document.querySelector("#guestform")).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>

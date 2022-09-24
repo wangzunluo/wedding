@@ -102,7 +102,8 @@ let itemData = [
   {img: "static/gallery/4.jpg", rows: 4, cols: 1},
   {img: "static/gallery/27.jpg", rows: 4, cols: 2},
   {img: "static/gallery/15.jpg", rows: 4, cols: 1},
-  // {img: "static/gallery/1.jpg", rows: 5, cols: 2},
+  {img: "static/gallery/32.jpg", rows: 7, cols: 2},
+  {img: "static/gallery/1.jpg", rows: 5, cols: 2},
 ]
 
 itemData.forEach(item => {

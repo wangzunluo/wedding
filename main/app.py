@@ -85,11 +85,12 @@ def rsvp():
         print('hi')
 
         for user in users:
-            if user[2]:
-                person = User(fname=user[0], lname=user[1], ischild=user[2], childfood=user[3])
-            else:
-                person = User(fname=user[0], lname=user[1], ischild=user[2], entree=user[3], side=user[4])
-            db.session.add(person)
+            if user:
+                if user[2]:
+                    person = User(fname=user[0], lname=user[1], ischild=user[2], childfood=user[3])
+                else:
+                    person = User(fname=user[0], lname=user[1], ischild=user[2], entree=user[3], side=user[4])
+                db.session.add(person)
         db.session.commit()
 
         return render_template('success.html')
