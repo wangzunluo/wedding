@@ -274,13 +274,18 @@ function App() {
 
   const [rsvps, setRsvp] = React.useState([]);
   const [rsvpui, setRsvpUi] = React.useState(rsvps.map((rsvp, i) => (<RSVPCard key={i} info={rsvp} num={i}/>)))
+
   const handlePostRSVP = () => {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", '/rsvp/form', true)
     xhr.setRequestHeader('Content-Type', 'application/json')
+    xhr.onreadystatechange = function() { 
+      if (this.readyState == 4) {
+        window.location.href = '/success'
+      } 
+    };
     xhr.send(JSON.stringify(rsvps))
     console.log('send to server')
-    window.location.href = '/success'
   };
 
   const [openForm, setFormOpen] = React.useState(false);

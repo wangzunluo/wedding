@@ -26,7 +26,7 @@ class User(db.Model):
     ischild = db.Column(db.Boolean(1), unique=False, nullable=False)
 
     def __repr__(self):
-        return '{0} {1}'.format(self.fname, self.lname)
+        return '{0} {1} {2}'.format(self.id, self.fname, self.lname)
 
 @app.route('/', methods=['GET'])
 def landing():
