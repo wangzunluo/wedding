@@ -50,6 +50,10 @@ def countdown():
 def story():
     return render_template('landing.html')
 
+@app.route('/test')
+def test():
+    return render_template('test.html')
+
 @app.route('/registry')
 @app.route('/eventdetails')
 @app.route('/rsvp')
@@ -62,10 +66,6 @@ def event_details():
 #     users = User.query.all()
 #     users.sort(key=lambda user : user.fname.lower())
 #     return render_template('guests.html', users=users)
-
-@app.route('/test')
-def test():
-    return render_template('test.html')
 
 @app.route('/success')
 def success():
