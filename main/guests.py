@@ -31,5 +31,10 @@ class User(db.Model):
 @app.route('/', methods=['GET'])
 def landing():
     users = User.query.all()
+    return render_template('guests.html', users=users)
+
+@app.route('/sorted', methods=['GET'])
+def sorted():
+    users = User.query.all()
     users.sort(key=lambda user : user.fname.lower())
     return render_template('guests.html', users=users)
